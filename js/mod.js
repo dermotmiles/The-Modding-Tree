@@ -1,8 +1,9 @@
 let modInfo = {
-	name: "The Unique Tree",
+	name: "The Tree of Universe Creation",
 	author: "dermotmiles",
-	pointsName: "Alpha Points",
+	pointsName: "Energy",
 	modFiles: ["layers.js", "tree.js"],
+	modId: ["hopefullythisisauniqueidwithsigmarizz"],
 
 	discordName: "",
 	discordLink: "",
@@ -25,6 +26,7 @@ let winText = `Congratulations! You have reached the end and beaten this game, b
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
 var doNotCallTheseFunctionsEveryTick = ["blowUpEverything"]
+var mult = [mult = mult.times(player.point)]
 
 function getStartPoints(){
     return new Decimal(modInfo.initialStartPoints)
@@ -41,6 +43,9 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	if (hasUpgrade('BB', 11)) gain = gain.times(2)
+		if (hasUpgrade('BB', 12)) gain = gain.times(upgradeEffect('BB', 12))
+			if (hasUpgrade('BB', 13)) gain = gain.add(2)
 	return gain
 }
 
